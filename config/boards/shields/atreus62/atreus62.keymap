@@ -12,12 +12,12 @@
 
 		default_layer {
 			bindings = <
-				&gresc    &kp N1     &kp N2       &kp N3       &kp N4   &kp N5     &kp N6    &kp N7   &kp N8   &kp N9    &kp N0    &kp BKSP  
-				&kp TAB   &kp Q      &kp W        &kp F        &kp P    &kp B      &kp J     &kp L    &kp U    &kp Y     &kp RA(W) &kp DEL
-				&kp LSHFT &kp A      &kp R        &kp S        &kp T    &kp G      &kp M     &kp N    &kp E    &kp RA(O) &kp RA(A) &mt RSHFT ENTER
-				&kp LCTL  &kp Z      &kp X        &kp C        &kp D    &kp V      &kp K     &kp H    &kp O    &kp I     &kp APOS  &kp RCTL 
-				&kp HOME  &kp C_MUTE &kp C_VOL_UP &kp C_VOL_DN &kp LALT &kp LGUI   &kp SPACE &kp LEFT &kp DOWN &kp UP    &kp RIGHT &kp PG_UP
-																        &kp FSLH   &mo SYM
+				&gresc    &kp N1     &kp N2       &kp N3       &kp N4   &kp N5           &kp N6    &kp N7   &kp N8   &kp N9    &kp N0    &kp BKSP  
+				&kp TAB   &kp Q      &kp W        &kp F        &kp P    &kp B            &kp J     &kp L    &kp U    &kp Y     &kp RA(W) &kp DEL
+				&kp LSHFT &kp A      &kp R        &kp S        &kp T    &kp G            &kp M     &kp N    &kp E    &kp RA(O) &kp RA(A) &mt RSHFT ENTER
+				&kp LCTL  &kp Z      &kp X        &kp C        &kp D    &kp V            &kp K     &kp H    &kp O    &kp I     &kp APOS  &kp RCTL 
+				&kp HOME  &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp LALT &mt LGUI SPACE   &kp SPACE &kp LEFT &kp DOWN &kp UP    &kp RIGHT &kp PG_UP
+																        &kp FSLH         &mo SYM
 			>;
 		};
 
@@ -27,7 +27,7 @@
 				&trans  &trans &trans       &trans       &trans &trans    &trans  &trans &trans &trans &trans &trans 
 				&trans  &trans &trans       &trans       &trans &trans    &trans  &trans &trans &trans &trans &trans
 				&trans  &trans &trans       &trans       &trans &trans    &trans  &trans &trans &trans &trans &trans 
-				&kp END &trans &kp C_BRI_UP &kp C_BRI_DN &trans &trans    &to BLT &trans &trans &trans &trans &kp PG_DN 
+				&kp END &trans &kp C_BRI_DN &kp C_BRI_UP &trans &trans    &to BLT &trans &trans &trans &trans &kp PG_DN 
 																&kp S     &trans
 			>;
 		};

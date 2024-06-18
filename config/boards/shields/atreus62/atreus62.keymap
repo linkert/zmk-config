@@ -20,7 +20,6 @@
 / {
 	keymap {
 		compatible = "zmk,keymap";
-
 		default_layer {
 			bindings = <
 				&gresc    &kp N1     &kp N2       &kp N3       &kp N4   &kp N5           &kp N6    &kp N7   &kp N8   &kp N9    &kp N0    &kp BKSP  
@@ -28,7 +27,7 @@
 				&kp LSHFT &kp A      &kp R        &kp S        &kp T    &kp G            &kp M     &kp N    &kp E    &kp RA(O) &kp RA(A) &mt RSHFT ENTER
 				&kp LCTL  &kp Z      &kp X        &kp C        &kp D    &kp V            &kp K     &kp H    &kp O    &kp I     &kp APOS  &kp RCTL 
 				&kp END   &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp LALT &mt LGUI SPACE   &kp SPACE &kp LEFT &kp DOWN &kp UP    &kp RIGHT &kp PG_DN
-																        &kp FSLH         &mo SYM
+																        &kp FSLH         &mo SYML
 			>;
 		};
 

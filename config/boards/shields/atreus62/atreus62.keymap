@@ -5,6 +5,7 @@
 #define DEFL 0
 #define SYML 1
 #define BTL 2
+#define QWEL 3
 
 / {
     combos {
@@ -13,6 +14,11 @@
             timeout-ms = <200>;
             key-positions = <60 61>;
             bindings = <&to BTL>;
+        };
+        combo_qwel {
+            timeout-ms = <200>;
+            key-positions = <0 11>;
+            bindings = <&to QWEL>;
         };
     };
 };
@@ -33,11 +39,11 @@
 
 		sym_layer {
 			bindings = <
-				&trans   &trans &trans       &trans       &trans &trans    &trans    &trans     &trans    &trans &trans &trans 
-				&trans   &trans &trans       &trans       &trans &trans    &kp BSLH  &kp LBKT   &kp RBKT  &trans &trans &trans 
-				&trans   &trans &trans       &trans       &trans &trans    &kp MINUS &kp PERIOD &kp COMMA &trans &trans &trans
-				&trans   &trans &trans       &trans       &trans &trans    &kp EQUAL &trans     &trans    &trans &trans &trans 
-				&kp HOME &trans &kp C_BRI_DN &kp C_BRI_UP &trans &trans    &kp SEMI  &trans     &trans    &trans &trans &kp PG_UP
+				&trans   &trans &trans       &trans       &trans &trans    &trans    &trans     &trans     &trans &trans &trans 
+				&trans   &trans &trans       &trans       &trans &trans    &kp BSLH  &kp LBKT   &kp RBKT   &trans &trans &trans 
+				&trans   &trans &trans       &trans       &trans &trans    &kp MINUS &kp COMMA  &kp PERIOD &trans &trans &trans
+				&trans   &trans &trans       &trans       &trans &trans    &kp EQUAL &kp SEMI   &trans     &trans &trans &trans 
+				&kp HOME &trans &kp C_BRI_DN &kp C_BRI_UP &trans &trans    &trans    &trans     &trans     &trans &trans &kp PG_UP
                                                                  &trans    &trans
 			>;
 		};
@@ -50,6 +56,17 @@
 				&none &none        &none        &none        &none        &none    &none   &none &none &none &none &bt BT_CLR_ALL
 				&none &none        &none        &none        &none        &none    &none   &none &none &none &none &bootloader 
                                                                           &none    &to DEFL
+			>;
+		};
+		
+		qwe_layer {
+			bindings = <
+				&trans &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans    &trans
+				&trans &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y    &kp U  &kp I  &kp O  &kp P     &kp RA(W) 
+				&trans &kp A  &kp S  &kp D  &kp F  &kp G  &kp H    &kp J  &kp K  &kp L  &kp RA(O) &kp RA(A)
+				&trans &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N    &kp M  &trans &trans &trans    &trans 
+				&trans &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans    &trans
+				                               &trans &to DEFL
 			>;
 		};
 	};

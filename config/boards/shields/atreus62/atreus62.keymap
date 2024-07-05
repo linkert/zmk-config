@@ -53,7 +53,7 @@ Key positions:
 				_ LSHFT _ A      _ R        _ S        _ T    _ G                            _ M     _ N    _ E    _ RA(O) _ RA(A) &mt RSHFT ENTER
 				_ LCTL  _ Z      _ X        _ C        _ D    _ V                            _ K     _ H    _ O    _ I     _ APOS  _ RCTL 
 				_ END   _ C_MUTE _ C_VOL_DN _ C_VOL_UP _ LALT &mt LGUI SPACE                 _ SPACE _ LEFT _ DOWN _ UP    _ RIGHT _ PG_DN
-																             _ FSLH &to SYML
+																             _ FSLH &mo SYML
 			>;
 		};
 
@@ -64,7 +64,7 @@ Key positions:
 				__     __ __         __         __ __                   _ MINUS _ COMMA _ PERIOD __ __ __
 				__     __ __         __         __ __                   _ EQUAL _ SEMI  __       __ __ __ 
 				_ HOME __ _ C_BRI_DN _ C_BRI_UP __ __                   __      __      __       __ __ _ PG_UP
-                                                      &to DEFL &to NUML
+                                                      &to DEFL &mo NUML
 			>;
 		};
 		
@@ -92,12 +92,13 @@ Key positions:
 		
 		qwe_layer {
 			bindings = <
-				__ __  __   __   __   __              __  __  __  __  __      __
-				__ _ Q _ W  _ E  _ R  _ T             _ Y _ U _ I _ O _ P     _ RA(W) 
-				__ _ A _ S  _ D  _ F  _ G             _ H _ J _ K _ L _ RA(O) _ RA(A)
-				__ _ Z _ X  _ C  _ V  _ B             _ N _ M __  __  __      __ 
-				__ __  __   __   __   __              __  __  __  __  __      __
-				                         &to DEFL ___
+				
+				&gresc  _ N1    _ N2    _ N3  _ N4   _ N5                    _ N6   _ N7   _ N8    _ N9      _ N0    _ BKSP  
+                _ TAB   _ Q     _ W     _ E   _ R    _ T                     _ Y    _ U    _ I     _ O       _ P     _ DEL
+				_ LSHFT _ A     _ S     _ D   _ F    _ G                     _ H    _ J    _ K     _ L       _ SEMI  &mt RSHFT ENTER
+                _ LCTL  _ Z     _ X     _ C   _ V    _ B                     _ N    _ M    _ COMMA _ PERIOD  _ APOS  _ RSHFT
+                _ HOME  _ END _ PG_UP _ PG_DN _ LALT _ SPACE                 _ LGUI _ LEFT _ DOWN  _ UP      _ RIGHT _ RCTL
+                                                             _ FSLH &to DEFL
 			>;
 		};
 	};

@@ -93,11 +93,11 @@ Key positions:
 		qwe_layer {
 			bindings = <
 				
-				&gresc  _ N1    _ N2    _ N3  _ N4   _ N5                    _ N6   _ N7   _ N8    _ N9      _ N0    _ BKSP  
-                _ TAB   _ Q     _ W     _ E   _ R    _ T                     _ Y    _ U    _ I     _ O       _ P     _ DEL
-				_ LSHFT _ A     _ S     _ D   _ F    _ G                     _ H    _ J    _ K     _ L       _ SEMI  &mt RSHFT ENTER
-                _ LCTL  _ Z     _ X     _ C   _ V    _ B                     _ N    _ M    _ COMMA _ PERIOD  _ APOS  _ RSHFT
-                _ HOME  _ END _ PG_UP _ PG_DN _ LALT _ SPACE                 _ LGUI _ LEFT _ DOWN  _ UP      _ RIGHT _ RCTL
+				_ MINUS _ N1    _ N2    _ N3  _ N4  _ N5                    _ N6   _ N7   _ N8    _ N9      _ N0    _ BKSP  
+                _ TAB   _ Q     _ W     _ E   _ R   _ T                     _ Y    _ U    _ I     _ O       _ P     &gresc
+				_ LSHFT _ A     _ S     _ D   _ F   _ G                     _ H    _ J    _ K     _ L       _ SEMI  &mt RSHFT ENTER
+                _ LCTL  _ Z     _ X     _ C   _ V   _ B                     _ N    _ M    _ COMMA _ PERIOD  _ APOS  _ RSHFT
+                _ HOME  _ END _ PG_UP _ PG_DN _ DEL _ SPACE                 _ LGUI _ LEFT _ DOWN  _ UP      _ RIGHT _ RCTL
                                                              _ FSLH &to DEFL
 			>;
 		};

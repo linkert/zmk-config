@@ -49,17 +49,17 @@ Key positions:
     };
 };
 
-/ behaviors {
-	gresc: grave_escape {
-		compatible = "zmk,behavior-mod-morph";
-			#binding-cells = <0>;
-			bindings = <&kp ESC>, <&kp GRAVE>;
-			mods = <(MOD_LSFT|MOD_RSFT)>;
-			keep-mods = <(MOD_RSFT)>;
+/ {
+	behaviors {
+		gresc: grave_escape {
+			compatible = "zmk,behavior-mod-morph";
+				#binding-cells = <0>;
+				bindings = <&kp ESC>, <&kp GRAVE>;
+				mods = <(MOD_LSFT|MOD_RSFT)>;
+				keep-mods = <(MOD_RSFT)>;
 		};
 	};
 };
-
 
 / {
 	keymap {

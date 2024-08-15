@@ -49,7 +49,7 @@ Key positions:
     };
 };
 
-/ behaviours {
+/ behaviors {
 	gresc: grave_escape {
 		compatible = "zmk,behavior-mod-morph";
 			#binding-cells = <0>;

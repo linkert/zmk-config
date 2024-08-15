@@ -6,8 +6,9 @@
 #define DEFL 0
 #define SYML 1
 #define NUML 2
-#define BTL 3
-#define QWEL 4
+#define FUNL 3
+#define BTL 4
+#define QWEL 5
 
 /* Shorthand */
 #define _ &kp
@@ -33,15 +34,32 @@ Key positions:
         combo_btl {
             timeout-ms = <200>;
             key-positions = <60 61>;
-            bindings = <&to BTL>;
+            bindings = <&sl BTL>;
         };
         combo_qwel {
             timeout-ms = <200>;
             key-positions = <0 11>;
             bindings = <&to QWEL>;
         };
+		combo_numl {
+			timeout-ms = <100>;
+			key-positions = <61 54>;
+			bindings = <&to NUML>;	
+		};
     };
 };
+
+/ behaviours {
+	gresc: grave_escape {
+		compatible = "zmk,behavior-mod-morph";
+			#binding-cells = <0>;
+			bindings = <&kp ESC>, <&kp GRAVE>;
+			mods = <(MOD_LSFT|MOD_RSFT)>;
+			keep-mods = <(MOD_RSFT)>;
+		};
+	};
+};
+
 
 / {
 	keymap {
@@ -59,23 +77,34 @@ Key positions:
 
 		sym_layer {
 			bindings = <
-				__     __ __         __         __ __                   __      __      __       __ __ __ 
-				__     __ __         __         __ __                   _ BSLH  _ LBKT  _ RBKT   __ __ __ 
-				__     __ __         __         __ __                   _ MINUS _ COMMA _ PERIOD __ __ __
-				__     __ __         __         __ __                   _ EQUAL _ SEMI  __       __ __ __ 
-				_ HOME __ _ C_BRI_DN _ C_BRI_UP __ __                   __      __      __       __ __ _ PG_UP
-                                                      &to DEFL &mo NUML
+				__     __ __         __         __ __            __      __      __       __ __ __ 
+				__     __ __         __         __ __            _ BSLH  _ LBKT  _ RBKT   __ __ __ 
+				__     __ __         __         __ __            _ MINUS _ COMMA _ PERIOD __ __ __
+				__     __ __         __         __ __            _ EQUAL _ SEMI  __       __ __ __ 
+				_ HOME __ _ C_BRI_DN _ C_BRI_UP __ __            __      __      __       __ __ _ PG_UP
+                                                      _ FSLH ___
 			>;
 		};
 		
-		num_layer{
+		num_layer {
 			bindings = <
-				__ __ __ __ __ __              __   __   __   __   __ __
-				__ __ __ __ __ __              __   _ N7 _ N8 _ N9 __ __
-				__ __ __ __ __ __              __   _ N4 _ N5 _ N6 __ __
-				__ __ __ __ __ __              _ N0 _ N1 _ N2 _ N3 __ __
-				__ __ __ __ __ __              __   __   __   __   __ __
-                                  &to DEFL ___
+				__ __ __ __ __ __             __   __   __   __   __ __
+				__ __ __ __ __ __             __   _ N7 _ N8 _ N9 __ __
+				__ __ __ __ __ __             __   _ N4 _ N5 _ N6 __ __
+				__ __ __ __ __ __             _ N0 _ N1 _ N2 _ N3 __ __
+				__ __ __ __ __ __             __   __   __   __   __ __
+                                  __ &to DEFL
+			>;
+		};
+
+		func_layer{
+			bindings = <
+				__ __ __ __ __ __             __ _ F10 _ F11 _ F12 __ __
+				__ __ __ __ __ __             __ _ F7  _ F8  _ F9  __ __
+				__ __ __ __ __ __             __ _ F4  _ F5  _ F6  __ __
+				__ __ __ __ __ __             __ _ F1  _ F2  _ F3  __ __
+				__ __ __ __ __ __             __ __    __    __    __ __
+                                  __ &to DEFL
 			>;
 		};
 
@@ -86,7 +115,7 @@ Key positions:
 				___ ___          ___          ___          ___          ___              ___ ___ ___ ___ ___ ___ 
 				___ ___          ___          ___          ___          ___              ___ ___ ___ ___ ___ &bt BT_CLR_ALL
 				___ ___          ___          ___          ___          ___              ___ ___ ___ ___ ___ &bootloader 
-                                                                            &to DEFL ___
+                                                                            ___ &to DEFL
 			>;
 		};
 		

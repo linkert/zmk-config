@@ -58,10 +58,10 @@ Key positions:
     
     default_layer {
       bindings = <
-        _ ESC   _ N1     _ N2       _ N3       _ N4   _ N5            _ N6    _ N7   _ N8     _ N9     _ N0    _ BKSP  
+        _ ESC   _ N1     _ N2       _ N3       _ N4   _ N5            _ N6    _ N7   _ N8     _ N9     _ N0    _ BKSP
         _ TAB   _ Q      _ W        _ E        _ R    _ T             _ Y     _ U    _ I      _ O      _ P     _ DEL
         _ LSHFT _ A      _ S        _ D        _ F    _ G             _ APOS  _ H    _ J      _ K      _ L     &mt RSHFT ENTER
-        _ LCTL  _ Z      _ X        _ C        _ V    _ B             _ N     _ M    _ COMMA  _PERIOD  _ FSLH  _ RCTL 
+        _ LCTL  _ Z      _ X        _ C        _ V    _ B             _ N     _ M    _ COMMA  _ PERIOD  _ FSLH  _ RCTL 
         _ END   _ C_MUTE _ C_VOL_DN _ C_VOL_UP _ LALT &mt LGUI SPACE  _ SPACE _ RALT &to NUML &to FUNL _ PSCRN _ PG_DN
         _ FSLH  &mo SYML
       >;

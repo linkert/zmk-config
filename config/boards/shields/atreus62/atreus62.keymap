@@ -18,104 +18,104 @@
 /*
 Key positions:
 
-	00 01 02 03 04 05       06 07 08 09 10 11
-	12 13 14 15 16 17       18 19 20 21 22 23
-	24 25 26 27 28 29       30 31 32 33 34 35
-	36 37 38 39 40 41       42 43 44 45 46 47
-	48 49 50 51 52 53       54 55 56 57 58 59
-                      60 61
+00 01 02 03 04 05       06 07 08 09 10 11
+12 13 14 15 16 17       18 19 20 21 22 23
+24 25 26 27 28 29       30 31 32 33 34 35
+36 37 38 39 40 41       42 43 44 45 46 47
+48 49 50 51 52 53       54 55 56 57 58 59
+                  60 61
 */
 
 
 / {
-    combos {
-    	compatible = "zmk,combos";
-        combo_btl {
-            timeout-ms = <200>;
-            key-positions = <60 61>;
-            bindings = <&sl BTL>;
-        };
-		combo_numl {
-			timeout-ms = <100>;
-			key-positions = <60 29>;
-			bindings = <&to NUML>;	
-		};
-		combo_funl {
-			timeout-ms = <100>;
-			key-positions = <60 17>;
-			bindings = <&to FUNL>;	
-		};
+  combos {
+    compatible = "zmk,combos";
+    combo_btl {
+      timeout-ms = <200>;
+      key-positions = <60 61>;
+      bindings = <&sl BTL>;
     };
+	  combo_numl {
+      timeout-ms = <100>;
+      key-positions = <60 29>;
+      bindings = <&to NUML>;
+    };
+    combo_funl {
+      timeout-ms = <100>;
+      key-positions = <60 17>;
+      bindings = <&to FUNL>;
+    };
+  };
 };
 
 / {
-	behaviors {
-		gresc: grave_escape {
-			compatible = "zmk,behavior-mod-morph";
-				#binding-cells = <0>;
-				bindings = <&kp ESC>, <&kp GRAVE>;
-				mods = <(MOD_LSFT|MOD_RSFT)>;
-				keep-mods = <(MOD_RSFT)>;
-		};
-	};
+  behaviors {
+    gresc: grave_escape {
+      compatible = "zmk,behavior-mod-morph";
+      bindings = <&kp ESC>, <&kp GRAVE>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+      keep-mods = <(MOD_RSFT)>;
+    };
+  };
 };
 
 / {
-	keymap {
-		compatible = "zmk,keymap";
-		default_layer {
-			bindings = <
-				&gresc  _ N1     _ N2       _ N3       _ N4   _ N5                           _ N6    _ N7   _ N8     _ N9     _ N0    _ BKSP  
-				_ TAB   _ Q      _ W        _ E        _ R    _ T                            _ Y     _ U    _ I      _ O      _ P     _ DEL
-				_ LSHFT _ A      _ S        _ D        _ F    _ G                            _ APOS  _ H    _ J      _ K      _ L     &mt RSHFT ENTER
-				_ LCTL  _ Z      _ X        _ C        _ V    _ B                            _ N     _ M    _ COMMA  _PERIOD  _ FSLH  _ RCTL 
-				_ END   _ C_MUTE _ C_VOL_DN _ C_VOL_UP _ LALT &mt LGUI SPACE                 _ SPACE _ RALT &to NUML &to FUNL _ PSCRN _ PG_DN
-																             _ FSLH &mo SYML
-			>;
-		};
+  keymap {
+    compatible = "zmk,keymap";
+    default_layer {
+      bindings = <
+        &gresc  _ N1     _ N2       _ N3       _ N4   _ N5            _ N6    _ N7   _ N8     _ N9     _ N0    _ BKSP  
+        _ TAB   _ Q      _ W        _ E        _ R    _ T             _ Y     _ U    _ I      _ O      _ P     _ DEL
+        _ LSHFT _ A      _ S        _ D        _ F    _ G             _ APOS  _ H    _ J      _ K      _ L     &mt RSHFT ENTER
+        _ LCTL  _ Z      _ X        _ C        _ V    _ B             _ N     _ M    _ COMMA  _PERIOD  _ FSLH  _ RCTL 
+        _ END   _ C_MUTE _ C_VOL_DN _ C_VOL_UP _ LALT &mt LGUI SPACE  _ SPACE _ RALT &to NUML &to FUNL _ PSCRN _ PG_DN
+        _ FSLH &mo SYML
+      >;
+    };
 
-		sym_layer {
-			bindings = <
-				__     __ __         __         __ __            __      __     __     __      __       __ 
-				__     __ __         __         __ __            _ MINUS _ LBKT _ RBKT _ BSLH  __       __ 
-				__     __ __         __         __ __            _ SEMI  _ LEFT  _ DOWN _ UP   _ RIGHT  __
-				__     __ __         __         __ __            _ EQUAL __     __     __      __       __ 
-				_ HOME __ _ C_BRI_DN _ C_BRI_UP __ __            __      __     __     __      __       _ PG_UP
-                                                      _ FSLH ___
-			>;
-		};
-		
-		num_layer {
-			bindings = <
-				__ __ __ __ __ __             __   __   __   __   __ __
-				__ __ __ __ __ __             __   _ N7 _ N8 _ N9 __ __
-				__ __ __ __ __ __             __   _ N4 _ N5 _ N6 __ __
-				__ __ __ __ __ __             _ N0 _ N1 _ N2 _ N3 __ __
-				__ __ __ __ __ __             __   __   __   __   __ __
-                                  __ &to DEFL
-			>;
-		};
+    sym_layer {
+      bindings = <
+        __     __ __         __         __ __   __      __     __     __      __     __ 
+        __     __ __         __         __ __   _ MINUS _ LBKT _ RBKT _ BSLH  __     __ 
+        __     __ __         __         __ __   _ SEMI  _ LEFT _ DOWN _ UP   _ RIGHT __
+        __     __ __         __         __ __   _ EQUAL __     __     __      __     __ 
+        _ HOME __ _ C_BRI_DN _ C_BRI_UP __ __   __      __     __     __      __     _ PG_UP
+        _ FSLH ___
+      >;
+    };
 
-		func_layer{
-			bindings = <
-				__ __ __ __ __ __             __ _ F10 _ F11 _ F12 __ __
-				__ __ __ __ __ __             __ _ F7  _ F8  _ F9  __ __
-				__ __ __ __ __ __             __ _ F4  _ F5  _ F6  __ __
-				__ __ __ __ __ __             __ _ F1  _ F2  _ F3  __ __
-				__ __ __ __ __ __             __ __    __    __    __ __
-                                  __ &to DEFL
-			>;
-		};
+    num_layer {
+      bindings = <
+        __ __ __ __ __ __    __   __   __   __   __ __
+        __ __ __ __ __ __    __   _ N7 _ N8 _ N9 __ __
+        __ __ __ __ __ __    __   _ N4 _ N5 _ N6 __ __
+        __ __ __ __ __ __    _ N0 _ N1 _ N2 _ N3 __ __
+        __ __ __ __ __ __    __   __   __   __   __ __
+        __ &to DEFL
+      >;
+    };
 
-		bt_layer {
-			bindings = <
-				___ &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 ___              ___ ___ ___ ___ ___ ___
-				___ ___          ___          ___          ___          ___              ___ ___ ___ ___ ___ ___
-				___ ___          ___          ___          ___          ___              ___ ___ ___ ___ ___ ___ 
-				___ ___          ___          ___          ___          ___              ___ ___ ___ ___ ___ &bt BT_CLR_ALL
-				___ ___          ___          ___          ___          ___              ___ ___ ___ ___ ___ &bootloader 
-                                                                            ___ &to DEFL
-			>;
-		};
-	};
+    func_layer {
+      bindings = <
+        __ __ __ __ __ __    __ _ F10 _ F11 _ F12 __ __
+        __ __ __ __ __ __    __ _ F7  _ F8  _ F9  __ __
+        __ __ __ __ __ __    __ _ F4  _ F5  _ F6  __ __
+        __ __ __ __ __ __    __ _ F1  _ F2  _ F3  __ __
+        __ __ __ __ __ __    __ __    __    __    __ __
+        __ &to DEFL
+      >;
+    };
+
+    bt_layer {
+      bindings = <
+        ___ &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 ___    ___ ___ ___ ___ ___ ___
+        ___ ___          ___          ___          ___          ___    ___ ___ ___ ___ ___ ___
+        ___ ___          ___          ___          ___          ___    ___ ___ ___ ___ ___ ___ 
+        ___ ___          ___          ___          ___          ___    ___ ___ ___ ___ ___ &bt BT_CLR_ALL
+        ___ ___          ___          ___          ___          ___    ___ ___ ___ ___ ___ &bootloader 
+        ___ &to DEFL
+      >;
+    };
+    
+  };
 };

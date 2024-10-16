@@ -26,50 +26,44 @@ Key positions:
                   60 61
 */
 
-
-/ {
-  combos {
-    compatible = "zmk,combos";
-    combo_btl {
-      timeout-ms = <200>;
-      key-positions = <60 61>;
-      bindings = <&sl BTL>;
-    };
-	  combo_numl {
-      timeout-ms = <100>;
-      key-positions = <60 29>;
-      bindings = <&to NUML>;
-    };
-    combo_funl {
-      timeout-ms = <100>;
-      key-positions = <60 17>;
-      bindings = <&to FUNL>;
+/*
+  / {
+    combos {
+      compatible = "zmk,combos";
+      combo_btl {
+        timeout-ms = <200>;
+        key-positions = <60 61>;
+        bindings = <&sl BTL>;
+      };
     };
   };
-};
+*/
 
-/ {
-  behaviors {
-    gresc: grave_escape {
-      compatible = "zmk,behavior-mod-morph";
-      bindings = <&kp ESC>, <&kp GRAVE>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-      keep-mods = <(MOD_RSFT)>;
+/*
+  / {
+    behaviors {
+      gresc: grave_escape {
+        compatible = "zmk,behavior-mod-morph";
+        bindings = <&kp ESC>, <&kp GRAVE>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+        keep-mods = <(MOD_RSFT)>;
+      };
     };
   };
-};
+*/
 
 / {
   keymap {
     compatible = "zmk,keymap";
+    
     default_layer {
       bindings = <
-        &gresc  _ N1     _ N2       _ N3       _ N4   _ N5            _ N6    _ N7   _ N8     _ N9     _ N0    _ BKSP  
+        _ ESC   _ N1     _ N2       _ N3       _ N4   _ N5            _ N6    _ N7   _ N8     _ N9     _ N0    _ BKSP  
         _ TAB   _ Q      _ W        _ E        _ R    _ T             _ Y     _ U    _ I      _ O      _ P     _ DEL
         _ LSHFT _ A      _ S        _ D        _ F    _ G             _ APOS  _ H    _ J      _ K      _ L     &mt RSHFT ENTER
         _ LCTL  _ Z      _ X        _ C        _ V    _ B             _ N     _ M    _ COMMA  _PERIOD  _ FSLH  _ RCTL 
         _ END   _ C_MUTE _ C_VOL_DN _ C_VOL_UP _ LALT &mt LGUI SPACE  _ SPACE _ RALT &to NUML &to FUNL _ PSCRN _ PG_DN
-        _ FSLH &mo SYML
+        _ FSLH  &mo SYML
       >;
     };
 
@@ -80,7 +74,7 @@ Key positions:
         __     __ __         __         __ __   _ SEMI  _ LEFT _ DOWN _ UP   _ RIGHT __
         __     __ __         __         __ __   _ EQUAL __     __     __      __     __ 
         _ HOME __ _ C_BRI_DN _ C_BRI_UP __ __   __      __     __     __      __     _ PG_UP
-        _ FSLH ___
+        _ FSLH  ___
       >;
     };
 
@@ -102,7 +96,7 @@ Key positions:
         __ __ __ __ __ __    __ _ F4  _ F5  _ F6  __ __
         __ __ __ __ __ __    __ _ F1  _ F2  _ F3  __ __
         __ __ __ __ __ __    __ __    __    __    __ __
-        __ &to DEFL
+        __  &to DEFL
       >;
     };
 
@@ -113,7 +107,7 @@ Key positions:
         ___ ___          ___          ___          ___          ___    ___ ___ ___ ___ ___ ___ 
         ___ ___          ___          ___          ___          ___    ___ ___ ___ ___ ___ &bt BT_CLR_ALL
         ___ ___          ___          ___          ___          ___    ___ ___ ___ ___ ___ &bootloader 
-        ___ &to DEFL
+        ___  &to DEFL
       >;
     };
     

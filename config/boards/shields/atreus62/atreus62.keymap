@@ -53,6 +53,7 @@ Key positions:
       tapping-term-ms = <300>;
       quick-tap-ms = <250>;
       flavor = "tap-unless-interrupted";
+      hold-trigger-key-positions = <18 19 20 21 22 30 31 32 33 34 42 43 44 45 46>
       bindings = <&kp>, <&kp>;
     };
     hm_r: homerow_mods_right {
@@ -62,6 +63,7 @@ Key positions:
       tapping-term-ms = <300>;
       quick-tap-ms = <250>;
       flavor = "tap-unless-interrupted";
+      hold-trigger-key-positions = <13 14 15 16 17 25 26 27 28 29 37 38 39 40 41>
       bindings = <&kp>, <&kp>;
     };
   };
@@ -76,7 +78,7 @@ Key positions:
         &gresc  _ N1     _ N2         _ N3         _ N4         _ N5           _ N6    _ N7         _ N8         _ N9             _ N0    _ BKSP
         _ TAB   _ Q      _ W          _ F          _ P          _ B            _ J     _ L          _ U          _ Y              _ RA(W) _ DEL
         _ LSHFT _ A      &hm_l LALT R &hm_l LGUI S &hm_l LCTL T _ G            _ M     &hm_r LCTL N &hm_r RGUI E &hm_r RALT RA(O) _ RA(A) &mt RSHFT ENTER
-        _ LCTL  _ Z      _ X          _ C          _ D          _ V            _ K     _ H          _ I          _ O              _ APOS  _ RCTL 
+        _ LCTL  _ Z      _ X          _ C          _ D          _ V            _ K     _ H          _ O          _ I              _ APOS  _ RCTL 
         ___     _ C_MUTE _ C_VOL_DN   _ C_VOL_UP   _ RALT       &mt LGUI SPACE _ SPACE _ LEFT       _ DOWN       _ UP             _ RIGHT ___
         _ FSLH  &mo symbolLayer
       >;

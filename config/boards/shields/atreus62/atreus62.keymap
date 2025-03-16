@@ -3,11 +3,12 @@
 #include <dt-bindings/zmk/bt.h>
 
 /* Layers */
-#define DEFL 0
-#define SYML 1
-#define NUML 2
-#define FUNL 3
-#define BTL 4
+#define baseLayer 0
+#define symbolLayer 1
+#define numpadLayer 2
+#define functionLayer 3
+#define bluetoothLayer 4
+#define gamingLayer 5
 
 /* Shorthand */
 #define _ &kp
@@ -32,7 +33,7 @@ Key positions:
     combo_btl {
       timeout-ms = <200>;
       key-positions = <60 61>;
-      bindings = <&sl BTL>;
+      bindings = <&sl bluetoothLayer>;
     };
   };
 };
@@ -45,6 +46,15 @@ Key positions:
       mods = <(MOD_LSFT|MOD_RSFT)>;
       keep-mods = <(MOD_RSFT)>;
     };
+    lhrm: left_positional_hold_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "tap-unless-interrupted";
+        tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+        quick-tap-ms = <200>;
+        bindings = <&kp>, <&kp>;
+        hold-trigger-key-positions = <29 30 31 32 33 34>;    // <---[[right-hand keys]]
+    };
   };
 };
 
@@ -54,12 +64,12 @@ Key positions:
     
     default_layer {
       bindings = <
-        &gresc  _ N1     _ N2       _ N3       _ N4   _ N5            _ N6    _ N7   _ N8     _ N9     _ N0    _ BKSP
-        _ TAB   _ Q      _ W        _ E        _ R    _ T             _ Y     _ U    _ I      _ O      _ P     _ DEL
-        _ LSHFT _ A      _ S        _ D        _ F    _ G             _ APOS  _ H    _ J      _ K      _ L     &mt RSHFT ENTER
-        _ LCTL  _ Z      _ X        _ C        _ V    _ B             _ N     _ M    _ COMMA  _ PERIOD  _ FSLH  _ RCTL 
-        _ END   _ C_MUTE _ C_VOL_DN _ C_VOL_UP _ LALT &mt LGUI SPACE  _ SPACE _ RALT &to NUML &to FUNL _ PSCRN _ PG_DN
-        _ FSLH  &mo SYML
+        &gresc  _ N1         _ N2         _ N3         _ N4         _ N5           _ N6    _ N7   _ N8   _ N9    _ N0    _ BKSP
+        _ TAB   _ Q          _ W          _ F          _ P          _ B            _ J     _ L    _ U    _ Y     _ RA(W) _ DEL
+        _ LSHFT &lhrm LSFT A &lhrm LGUI R &lhrm LALT S &lhrm LCTL T _ G            _ M     _ N    _ E    _ RA(O) _ RA(A) &mt RSHFT ENTER
+        _ LCTL  _ Z          _ X          _ C          _ D          _ V            _ K     _ H    _ I    _ O     _ APOS  _ RCTL 
+        ___     _ C_MUTE     _ C_VOL_DN   _ C_VOL_UP   _ RALT       &mt LGUI SPACE _ SPACE _ LEFT _ DOWN _ UP    _ RIGHT ___
+        _ FSLH  &mo symbolLayer
       >;
     };
 
@@ -81,7 +91,7 @@ Key positions:
         __ __ __ __ __ __    __   _ N4 _ N5 _ N6 __ __
         __ __ __ __ __ __    _ N0 _ N1 _ N2 _ N3 __ __
         __ __ __ __ __ __    __   __   __   __   __ __
-        __ &to DEFL
+        __ &to baseLayer
       >;
     };
 
@@ -92,7 +102,7 @@ Key positions:
         __ __ __ __ __ __    __ _ F4  _ F5  _ F6  __ __
         __ __ __ __ __ __    __ _ F1  _ F2  _ F3  __ __
         __ __ __ __ __ __    __ __    __    __    __ __
-        __  &to DEFL
+        __  &to baseLayer
       >;
     };
 
@@ -103,9 +113,20 @@ Key positions:
         ___ ___          ___          ___          ___          ___    ___ ___ ___ ___ ___ ___ 
         ___ ___          ___          ___          ___          ___    ___ ___ ___ ___ ___ &bt BT_CLR_ALL
         ___ ___          ___          ___          ___          ___    ___ ___ ___ ___ ___ &bootloader 
-        ___  &to DEFL
+        ___  &to baseLayer
       >;
     };
     
+    qwerty_layer {
+      bindings = <
+        &gresc  _ N1     _ N2       _ N3       _ N4   _ N5            _ N6    _ N7   _ N8     _ N9     _ N0    _ BKSP
+        _ TAB   _ Q      _ W        _ E        _ R    _ T             _ Y     _ U    _ I      _ O      _ P     _ DEL
+        _ LSHFT _ A      _ S        _ D        _ F    _ G             _ APOS  _ H    _ J      _ K      _ L     &mt RSHFT ENTER
+        _ LCTL  _ Z      _ X        _ C        _ V    _ B             _ N     _ M    _ COMMA  _ PERIOD  _ FSLH  _ RCTL 
+        _ END   _ C_MUTE _ C_VOL_DN _ C_VOL_UP _ LALT &mt LGUI SPACE  _ SPACE _ RALT &to numpadLayer &to functionLayer _ PSCRN _ PG_DN
+        _ FSLH  &mo symbolLayer
+      >;
+    };
+ 
   };
 };

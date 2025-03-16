@@ -46,14 +46,23 @@ Key positions:
       mods = <(MOD_LSFT|MOD_RSFT)>;
       keep-mods = <(MOD_RSFT)>;
     };
-    lhrm: left_positional_hold_tap {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "tap-unless-interrupted";
-        tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
-        quick-tap-ms = <200>;
-        bindings = <&kp>, <&kp>;
-        hold-trigger-key-positions = <29 30 31 32 33 34>;    // <---[[right-hand keys]]
+    hm_l: homerow_mods_left {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOMEROW_MODS_L";
+      #binding-cells = <2>;
+      tapping-term-ms = <300>;
+      quick-tap-ms = <250>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
+    hm_r: homerow_mods_right {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOMEROW_MODS_R";
+      #binding-cells = <2>;
+      tapping-term-ms = <300>;
+      quick-tap-ms = <250>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
     };
   };
 };
@@ -64,11 +73,11 @@ Key positions:
     
     default_layer {
       bindings = <
-        &gresc  _ N1         _ N2         _ N3         _ N4         _ N5           _ N6    _ N7   _ N8   _ N9    _ N0    _ BKSP
-        _ TAB   _ Q          _ W          _ F          _ P          _ B            _ J     _ L    _ U    _ Y     _ RA(W) _ DEL
-        _ LSHFT &lhrm LSFT A &lhrm LGUI R &lhrm LALT S &lhrm LCTL T _ G            _ M     _ N    _ E    _ RA(O) _ RA(A) &mt RSHFT ENTER
-        _ LCTL  _ Z          _ X          _ C          _ D          _ V            _ K     _ H    _ I    _ O     _ APOS  _ RCTL 
-        ___     _ C_MUTE     _ C_VOL_DN   _ C_VOL_UP   _ RALT       &mt LGUI SPACE _ SPACE _ LEFT _ DOWN _ UP    _ RIGHT ___
+        &gresc  _ N1     _ N2         _ N3         _ N4         _ N5           _ N6    _ N7         _ N8         _ N9             _ N0    _ BKSP
+        _ TAB   _ Q      _ W          _ F          _ P          _ B            _ J     _ L          _ U          _ Y              _ RA(W) _ DEL
+        _ LSHFT _ A      &hm_l LALT R &hm_l LGUI S &hm_l LCTL T _ G            _ M     &hm_r LCTL N &hm_r RGUI E &hm_r RALT RA(O) _ RA(A) &mt RSHFT ENTER
+        _ LCTL  _ Z      _ X          _ C          _ D          _ V            _ K     _ H          _ I          _ O              _ APOS  _ RCTL 
+        ___     _ C_MUTE _ C_VOL_DN   _ C_VOL_UP   _ RALT       &mt LGUI SPACE _ SPACE _ LEFT       _ DOWN       _ UP             _ RIGHT ___
         _ FSLH  &mo symbolLayer
       >;
     };
@@ -78,7 +87,7 @@ Key positions:
         __     __ __         __         __ __   __      __     __     __      __     __ 
         __     __ __         __         __ __   _ MINUS _ LBKT _ RBKT _ BSLH  __     __ 
         __     __ __         __         __ __   _ SEMI  _ LEFT _ DOWN _ UP   _ RIGHT __
-        __     __ __         __         __ __   _ EQUAL __     __     __      __     __ 
+        __     __ __         __         __ __   _ EQUAL _ COMMA _ PERIOD     __      __     __ 
         _ HOME __ _ C_BRI_DN _ C_BRI_UP __ __   __      __     __     __      __     _ PG_UP
         _ FSLH  ___
       >;

@@ -52,7 +52,7 @@ Key positions:
       #binding-cells = <2>;
       tapping-term-ms = <300>;
       quick-tap-ms = <250>;
-      flavor = "tap-preferred";
+      flavor = "tap-unless-interrupted";
       bindings = <&kp>, <&kp>;
     };
     hm_r: homerow_mods_right {
@@ -61,7 +61,7 @@ Key positions:
       #binding-cells = <2>;
       tapping-term-ms = <300>;
       quick-tap-ms = <250>;
-      flavor = "tap-preferred";
+      flavor = "tap-unless-interrupted";
       bindings = <&kp>, <&kp>;
     };
   };

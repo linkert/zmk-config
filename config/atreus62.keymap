@@ -45,7 +45,7 @@ Key positions:
         morph_symNav_alt: morph_symNav_alt {
             compatible = "zmk,behavior-mod-morph";
             label = "MORPH_SYMNAV_ALT";
-            bindings = <&mo 1>, <&mo 2>;
+            bindings = <&mo 1>, <&mo 0>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -79,11 +79,22 @@ Key positions:
 
         symNav_alt {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp HOME  &kp PG_DN  &kp PG_UP  &kp END  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans         &trans         &trans          &trans         &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &mt UNDER MINUS  &mt LBRC LBKT  &mt RBRC RBKT  &kp LPAR        &kp RPAR       &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &mt COLON SEMI   &kp HOME       &kp PG_DN      &kp PG_UP       &kp END        &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &mt PLUS EQUAL   &mt LT COMMA   &mt GT DOT     &mt QMARK FSLH  &mt PIPE BSLH  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans         &trans         &trans          &trans         &trans
+                                        &trans  &trans
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                                         &trans  &trans
             >;
         };

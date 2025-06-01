@@ -89,12 +89,5 @@ Key positions:
         };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        symNav_alt {
-            if-layers = <2>;
-            then-layer = <1>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };

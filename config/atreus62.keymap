@@ -41,6 +41,15 @@ Key positions:
             flavor = "balanced";
             require-prior-idle-ms = <125>;
         };
+
+        morph_symNav_alt: morph_symNav_alt {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MORPH_SYMNAV_ALT";
+            bindings = <&mo 1>, <&mo 2>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     keymap {
@@ -48,13 +57,44 @@ Key positions:
 
         base {
             bindings = <
-&kp ESC    &kp N1             &kp N2            &kp N3              &kp N4            &kp N5     &kp N6     &kp N7             &kp N8               &kp N9                 &kp N0                  &kp BSPC
-&kp TAB    &kp Q              &kp W             &kp F               &kp P             &kp B      &kp J      &kp L              &kp U                &kp Y                  &kp RA(W)               &kp DEL
-&kp LSHFT  &modsLeft LCTRL A  &modsLeft LALT R  &modsLeft LSHIFT S  &modsLeft LGUI T  &kp G      &kp M      &modsRight RGUI N  &modsRight RSHIFT E  &modsRight RALT RA(O)  &modsRight RCTRL RA(A)  &kp RET
-&kp LCTRL  &kp Z              &kp X             &kp C               &kp D             &kp V      &kp K      &kp H              &kp O                &kp I                  &kp SQT                 &kp RCTRL
-&trans     &trans             &trans            &trans              &trans            &kp SPACE  &kp SPACE  &kp LEFT           &kp DOWN             &kp UP                 &kp RIGHT               &trans
-                                                                                      &trans     &trans
+&kp ESC    &kp N1            &kp N2             &kp N3              &kp N4            &kp N5     &kp N6             &kp N7             &kp N8               &kp N9                  &kp N0                 &kp BSPC
+&kp TAB    &kp Q             &kp W              &kp F               &kp P             &kp B      &kp J              &kp L              &kp U                &kp Y                   &kp RA(W)              &kp DEL
+&kp LSHFT  &modsLeft LALT A  &modsLeft LCTRL R  &modsLeft LSHIFT S  &modsLeft LGUI T  &kp G      &kp M              &modsRight RGUI N  &modsRight RSHIFT E  &modsRight RCTRL RA(O)  &modsRight RALT RA(A)  &kp RET
+&kp LCTRL  &kp Z             &kp X              &kp C               &kp D             &kp V      &kp K              &kp H              &kp O                &kp I                   &kp SQT                &kp RCTRL
+&trans     &trans            &trans             &trans              &trans            &kp SPACE  &kp SPACE          &kp LEFT           &kp DOWN             &kp UP                  &kp RIGHT              &trans
+                                                                                      &trans     &morph_symNav_alt
             >;
+        };
+
+        symNav {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans         &trans         &trans          &trans         &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &mt UNDER MINUS  &mt LBRC LBKT  &mt RBRC RBKT  &kp LPAR        &kp RPAR       &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &mt COLON SEMI   &kp LEFT       &kp DOWN       &kp UP          &kp RIGHT      &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &mt PLUS EQUAL   &mt LT COMMA   &mt GT DOT     &mt QMARK FSLH  &mt PIPE BSLH  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans         &trans         &trans          &trans         &trans
+                                        &trans  &trans
+            >;
+        };
+
+        symNav_alt {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp HOME  &kp PG_DN  &kp PG_UP  &kp END  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans   &trans
+                                        &trans  &trans
+            >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        symNav_alt {
+            if-layers = <2>;
+            then-layer = <1>;
         };
     };
 };
